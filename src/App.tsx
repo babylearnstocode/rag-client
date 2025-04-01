@@ -143,7 +143,7 @@ function App() {
       ]);
 
       // 5. store document
-      await fetch(`http://${import.meta.env.VITE_API_IP}/store-document`, {
+      await fetch(`http://${import.meta.env.VITE_API_IP}:8080/store-document`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
