@@ -14,7 +14,7 @@ const queryDocuement = async (
   conversationId: string,
   documentIds: string[]
 ) => {
-  return await fetch(`http://${import.meta.env.VITE_API_IP}/query-document`, {
+  return await fetch(`https://${import.meta.env.VITE_API_IP}/query-document`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -140,7 +140,7 @@ function App() {
       ]);
 
       // 5. store document
-      await fetch(`http://${import.meta.env.VITE_API_IP}/store-document`, {
+      await fetch(`https://${import.meta.env.VITE_API_IP}/store-document`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
