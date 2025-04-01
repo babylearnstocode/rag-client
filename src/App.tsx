@@ -46,7 +46,14 @@ function App() {
     setMessages((prev) => [...prev, assistantMessage]);
 
     try {
-      const res = await queryDocuement(prompt, conversationId, documentIds);
+      const promptString = prompt.trim();
+      setPrompt("");
+      const res = await queryDocuement(
+        promptString,
+        conversationId,
+        documentIds
+      );
+
       const reader = res.body?.getReader();
 
       if (!reader) {
@@ -189,15 +196,15 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>AI Chat with Youtube</h1>
+      <h1>AI Chat with YouTube</h1>
       <form onSubmit={handleStoreDocument}>
-        <Input
+        <input
           type="text"
-          placeholder="Enter a Youtube URL"
+          placeholder="Drop a YouTube URL here"
           value={url}
-          onChange={setUrl}
+          onChange={(e) => setUrl(e.target.value)}
         />
-        <button type="submit" disabled={loading} className="submit-button">
+        <button type="submit" disabled={loading}>
           {loading ? "Processing..." : "Submit"}
         </button>
       </form>
